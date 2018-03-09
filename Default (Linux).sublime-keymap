@@ -1,0 +1,22 @@
+[
+    { "keys": ["super+shift+l"],
+      "command": "insert_snippet",
+      "args": {
+        "contents": "console.log(${1:}$SELECTION);${0}"
+      }
+    },
+    {
+      "keys": ["tab"],
+      "command": "chain", 
+      "args": {
+        "commands": [
+          ["expand_abbreviation_by_tab"]
+        ]
+      },
+      "context": [
+        {"operand": "source.js", "operator": "equal", "match_all": true, "key": "selector"}, 
+        {"key": "preceding_text", "operator": "regex_contains", "operand": "(\\w+>\\w+|\\s(\\.?|a|div|span|p|button)\\.\\w+)", "match_all": true},
+        {"key": "selection_empty", "operator": "equal", "operand": true, "match_all": true}
+      ]
+  }
+]
